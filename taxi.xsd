@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="stringWithSpaces">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:element name="company" type="companyType"/>
+
+    <xs:complexType name="companyType">
+        <xs:sequence>
+            <xs:element name="country" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="dayPricePerKm" type="xs:decimal"/>
+            <xs:element name="nightPricePerKm" type="xs:decimal"/>
+            <xs:element name="cars" type="carsType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="carsType">
+        <xs:sequence>
+            <xs:element name="car" type="carType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="carType">
+        <xs:sequence>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="manufactureDate" type="xs:string"/>
+            <xs:element name="traveledKm" type="xs:decimal"/>
+            <xs:element name="currentLocation" type="locationType"/>
+            <xs:element name="drivers" type="driversType"/>
+        </xs:sequence>
+
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="isActive" type="xs:boolean" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="locationType">
+        <xs:attribute name="latitude" type="xs:string" use="required"/>
+        <xs:attribute name="longitude" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="driversType">
+        <xs:sequence>
+            <xs:element name="driver" type="driverType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="driverType">
+        <xs:sequence>
+            <xs:element name="names" type="namesType"/>
+            <xs:element name="personalIdentificationNumber" type="xs:string"/>
+            <xs:element name="rating" type="xs:decimal"/>
+        </xs:sequence>
+
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="age" type="xs:integer" use="required"/>
+        <xs:attribute name="gender" type="genderType" use="required"/>
+        <xs:attribute name="isActive" type="xs:boolean" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="namesType">
+        <xs:sequence>
+            <xs:element name="first" type="xs:string"/>
+            <xs:element name="middle" type="xs:string"/>
+            <xs:element name="last" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="genderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

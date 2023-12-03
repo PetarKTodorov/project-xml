@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="taxi.xsl"?>
+
+<!DOCTYPE company [
+    <!ELEMENT company (country, city, name, currency, dayPricePerKm, nightPricePerKm, cars)>
+        <!ELEMENT country (#PCDATA)>
+        <!ELEMENT city (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT currency (#PCDATA)>
+        <!ELEMENT dayPricePerKm (#PCDATA)>
+        <!ELEMENT nightPricePerKm (#PCDATA)>
+
+        <!ELEMENT cars (car+)>
+            <!ELEMENT car (number, brand, model, manufactureDate, traveledKm, currentLocation, drivers)>
+            <!ATTLIST car id CDATA #REQUIRED>
+            <!ATTLIST car isActive (true|false) #REQUIRED>
+
+            <!ELEMENT number (#PCDATA)>
+            <!ELEMENT brand (#PCDATA)>
+            <!ELEMENT model (#PCDATA)>
+            <!ELEMENT manufactureDate (#PCDATA)>
+            <!ELEMENT traveledKm (#PCDATA)>
+            <!ELEMENT currentLocation EMPTY>
+            <!ATTLIST currentLocation latitude CDATA #REQUIRED>
+            <!ATTLIST currentLocation longitude CDATA #REQUIRED>
+
+            <!ELEMENT drivers (driver+)>
+                <!ELEMENT driver (names, personalIdentificationNumber, rating)>
+                <!ATTLIST driver id CDATA #REQUIRED>
+                <!ATTLIST driver age CDATA #REQUIRED>
+                <!ATTLIST driver gender (M|F) #REQUIRED>
+                <!ATTLIST driver isActive (true|false) #REQUIRED>
+
+                <!ELEMENT names (first, middle, last)>
+                    <!ELEMENT first (#PCDATA)>
+                    <!ELEMENT middle (#PCDATA)>
+                    <!ELEMENT last (#PCDATA)>
+
+                <!ELEMENT personalIdentificationNumber (#PCDATA)>
+                <!ELEMENT rating (#PCDATA)>
+]>
+
+<company>
+    <country>Bulgaria</country>
+    <city>Veliko Tarnovo</city>
+    <name>Taxi PKT</name>
+    <currency>leva</currency>
+    <dayPricePerKm>1.50</dayPricePerKm>
+    <nightPricePerKm>1.80</nightPricePerKm>
+
+    <cars>
+        <car id="1" isActive="true">
+            <number>BT0203AM</number>
+            <brand>Dacia</brand>
+            <model>Sandero</model>
+            <manufactureDate>02.02.2008</manufactureDate>
+            <traveledKm>80000</traveledKm>
+            <currentLocation latitude="43.074930" longitude="25.618390"></currentLocation>
+            <drivers>
+                <driver id="11" age="45" gender="M" isActive="true">
+                    <names>
+                        <first>Georgi</first>
+                        <middle>Ivanov</middle>
+                        <last>Ivanov</last>
+                    </names>
+                    <personalIdentificationNumber>4509021627</personalIdentificationNumber>
+                    <rating>3</rating>
+                </driver>
+
+                <driver id="12" age="56" gender="M" isActive="false">
+                    <names>
+                        <first>Petar</first>
+                        <middle>Draganov</middle>
+                        <last>Cachev</last>
+                    </names>
+                    <personalIdentificationNumber>5604301600</personalIdentificationNumber>
+                    <rating>4.2</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="2" isActive="true">
+            <number>BT1834BC</number>
+            <brand>Toyota</brand>
+            <model>Corolla</model>
+            <manufactureDate>15.06.2015</manufactureDate>
+            <traveledKm>120000</traveledKm>
+            <currentLocation latitude="42.424610" longitude="25.624030"></currentLocation>
+            <drivers>
+                <driver id="21" age="35" gender="F" isActive="false">
+                    <names>
+                        <first>Maria</first>
+                        <middle>Stoyanova</middle>
+                        <last>Ivanova</last>
+                    </names>
+                    <personalIdentificationNumber>3545121538</personalIdentificationNumber>
+                    <rating>4.5</rating>
+                </driver>
+
+                <driver id="22" age="61" gender="M" isActive="true">
+                    <names>
+                        <first>Martin</first>
+                        <middle>Todorov</middle>
+                        <last>Nikolaev</last>
+                    </names>
+                    <personalIdentificationNumber>6122201580</personalIdentificationNumber>
+                    <rating>4.6</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="3" isActive="true">
+            <number>BT5678MR</number>
+            <brand>Ford</brand>
+            <model>Focus</model>
+            <manufactureDate>20.09.2014</manufactureDate>
+            <traveledKm>145000</traveledKm>
+            <currentLocation latitude="42.890120" longitude="25.293750"></currentLocation>
+            <drivers>
+                <driver id="31" age="28" gender="M" isActive="true">
+                    <names>
+                        <first>Nikolay</first>
+                        <middle>Aleksandrov</middle>
+                        <last>Georgiev</last>
+                    </names>
+                    <personalIdentificationNumber>2846141667</personalIdentificationNumber>
+                    <rating>4.8</rating>
+                </driver>
+
+                <driver id="32" age="35" gender="F" isActive="false">
+                    <names>
+                        <first>Stefka</first>
+                        <middle>Stoimenova</middle>
+                        <last>Georgieva</last>
+                    </names>
+                    <personalIdentificationNumber>3542071454</personalIdentificationNumber>
+                    <rating>4.8</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="4" isActive="false">
+            <number>BT2816MK</number>
+            <brand>Chevrolet</brand>
+            <model>Malibu</model>
+            <manufactureDate>12.11.2010</manufactureDate>
+            <traveledKm>180000</traveledKm>
+            <currentLocation latitude="42.874530" longitude="25.321450"></currentLocation>
+            <drivers>
+                <driver id="41" age="33" gender="F" isActive="false">
+                    <names>
+                        <first>Alexandera</first>
+                        <middle>Stefanova</middle>
+                        <last>Petrova</last>
+                    </names>
+                    <personalIdentificationNumber>3304221578</personalIdentificationNumber>
+                    <rating>4.2</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="5" isActive="true">
+            <number>BT1122CD</number>
+            <brand>Dacia</brand>
+            <model>Sandero</model>
+            <manufactureDate>05.07.2010</manufactureDate>
+            <traveledKm>230000</traveledKm>
+            <currentLocation latitude="42.697610" longitude="23.321030"></currentLocation>
+            <drivers>
+                <driver id="51" age="53" gender="M" isActive="true">
+                    <names>
+                        <first>Angel</first>
+                        <middle>Milanov</middle>
+                        <last>Dobromirov</last>
+                    </names>
+                    <personalIdentificationNumber>5309281402</personalIdentificationNumber>
+                    <rating>4.9</rating>
+                </driver>
+
+                <driver id="52" age="30" gender="M" isActive="false">
+                    <names>
+                        <first>Nikolay</first>
+                        <middle>Georgiev</middle>
+                        <last>Atanasov</last>
+                    </names>
+                    <personalIdentificationNumber>3007061600</personalIdentificationNumber>
+                    <rating>4.5</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="6" isActive="false">
+            <number>BT4527FG</number>
+            <brand>Honda</brand>
+            <model>Accord</model>
+            <manufactureDate>10.03.2015</manufactureDate>
+            <traveledKm>163000</traveledKm>
+            <currentLocation latitude="42.696030" longitude="23.316540"></currentLocation>
+            <drivers>
+                <driver id="61" age="44" gender="M" isActive="false">
+                    <names>
+                        <first>Stefan</first>
+                        <middle>Stefanov</middle>
+                        <last>Todorov</last>
+                    </names>
+                    <personalIdentificationNumber>4445291466</personalIdentificationNumber>
+                    <rating>3.7</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="7" isActive="true">
+            <number>BT7890AB</number>
+            <brand>Hyundai</brand>
+            <model>Elantra</model>
+            <manufactureDate>15.09.2016</manufactureDate>
+            <traveledKm>170512</traveledKm>
+            <currentLocation latitude="42.685740" longitude="23.323960"></currentLocation>
+            <drivers>
+                <driver id="71" age="39" gender="F" isActive="true">
+                    <names>
+                        <first>Martina</first>
+                        <middle>Dimitrova</middle>
+                        <last>Petrova</last>
+                    </names>
+                    <personalIdentificationNumber>3909051455</personalIdentificationNumber>
+                    <rating>4.0</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="8" isActive="true">
+            <number>BT8735JK</number>
+            <brand>Subaru</brand>
+            <model>Outback</model>
+            <manufactureDate>22.11.2017</manufactureDate>
+            <traveledKm>95031</traveledKm>
+            <currentLocation latitude="42.682510" longitude="23.333270"></currentLocation>
+            <drivers>
+                <driver id="81" age="43" gender="M" isActive="false">
+                    <names>
+                        <first>Kristin</first>
+                        <middle>Petrov</middle>
+                        <last>Ivanov</last>
+                    </names>
+                    <personalIdentificationNumber>4308221428</personalIdentificationNumber>
+                    <rating>4.6</rating>
+                </driver>
+
+                <driver id="82" age="53" gender="M" isActive="true">
+                    <names>
+                        <first>Todor</first>
+                        <middle>Krasimirov</middle>
+                        <last>Genchev</last>
+                    </names>
+                    <personalIdentificationNumber>5327251580</personalIdentificationNumber>
+                    <rating>4.6</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="9" isActive="false">
+            <number>BT7395MM</number>
+            <brand>Nissan</brand>
+            <model>Altima</model>
+            <manufactureDate>18.05.2016</manufactureDate>
+            <traveledKm>123082</traveledKm>
+            <currentLocation latitude="42.695120" longitude="23.312780"></currentLocation>
+            <drivers>
+                <driver id="91" age="41" gender="F" isActive="false">
+                    <names>
+                        <first>Mariya</first>
+                        <middle>Stoimenova</middle>
+                        <last>Dimitrova</last>
+                    </names>
+                    <personalIdentificationNumber>4107041595</personalIdentificationNumber>
+                    <rating>4.2</rating>
+                </driver>
+            </drivers>
+        </car>
+
+        <car id="10" isActive="true">
+            <number>BT2745AX</number>
+            <brand>Volvo</brand>
+            <model>S60</model>
+            <manufactureDate>07.08.2013</manufactureDate>
+            <traveledKm>155000</traveledKm>
+            <currentLocation latitude="42.687930" longitude="23.326450"></currentLocation>
+            <drivers>
+                <driver id="101" age="37" gender="M" isActive="true">
+                    <names>
+                        <first>Anton</first>
+                        <middle>Nikolov</middle>
+                        <last>Stefanov</last>
+                    </names>
+                    <personalIdentificationNumber>3703271666</personalIdentificationNumber>
+                    <rating>4.8</rating>
+                </driver>
+
+                <driver id="102" age="33" gender="F" isActive="false">
+                    <names>
+                        <first>Ekaterina</first>
+                        <middle>Georgieva</middle>
+                        <last>Stefanova</last>
+                    </names>
+                    <personalIdentificationNumber>3302201459</personalIdentificationNumber>
+                    <rating>4.5</rating>
+                </driver>
+            </drivers>
+        </car>
+    </cars>
+</company>

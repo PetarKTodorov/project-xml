@@ -1,0 +1,11 @@
+{
+  "name": "project-xml",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "1.2.2"
+  }
+}
